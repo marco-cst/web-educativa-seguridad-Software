@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divulgación Científica: Seguridad de Software</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-background: #fff;
+            --border-color: #dee2e6;
+            --hover-color: #0056b3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        /* Estilos de Artículos */
+        .paper-section {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .paper-section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .paper-section .authors {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .level-selector {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap; /* Para responsividad */
+        }
+
+        .level-selector button {
+            padding: 10px 15px;
+            font-size: 0.95em;
+            cursor: pointer;
+            border: 1px solid var(--primary-color);
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .level-selector button:hover,
+        .level-selector button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .summary-content h3 {
+            color: var(--secondary-color);
+            margin-top: 20px;
+            font-size: 1.3em;
+        }
+
+        .summary-content ul {
+            padding-left: 20px;
+        }
+        .summary-content li {
+            margin-bottom: 8px;
+        }
+
+        .level-summary {
+            display: none; /* Ocultar por defecto */
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s ease-in-out, max-height 0.7s ease-in-out;
+        }
+
+        .level-summary.active {
+            display: block; /* Mostrar el activo */
+            opacity: 1;
+            max-height: 5000px; /* Un valor suficientemente grande */
+        }
+        
+        .level-summary p, .level-summary li {
+            text-align: justify;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            margin-top: auto;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .paper-section h2 {
+                font-size: 1.5em;
+            }
+            .level-selector {
+                flex-direction: column;
+            }
+            .level-selector button {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Avances en Seguridad de Software</h1>
+    </header>
+
+    <main class="container">
+        <article class="paper-section" id="paper1">
+            <h2>Gestión Automatizada de Riesgos Basada en la Gestión de Vulnerabilidades de Seguridad del Software</h2>
+            <p class="authors">RAGHAVENDRA RAO ALTHAR, DEBABRATA SAMANTA, MANJIT KAUR, DILBAG SINGH, AND HEUNG-NO LEE</p>
+            <div class="level-selector">
+                <button data-level="introductory" class="active">Nivel Introductorio</button>
+                <button data-level="technical">Nivel Técnico</button>
+                <button data-level="reflexive">Nivel Reflexivo</button>
+            </div>
+            <div class="summary-content">
+                <div class="level-summary introductory active">
+                    <h3>¿De qué trata este artículo?</h3>
+                    <p>Imagina que construir software es como construir una casa. Quieres que sea segura contra ladrones (vulnerabilidades). Este artículo propone una forma más inteligente y automática de encontrar los puntos débiles de la "casa del software" antes de que los ladrones los encuentren. En lugar de depender solo de la opinión de expertos, que puede ser subjetiva, utilizan datos y aprendizaje automático (como enseñar a una computadora a reconocer patrones) para hacer este proceso más objetivo y eficiente, especialmente en entornos de desarrollo rápido como las metodologías Ágiles. El objetivo es construir software más seguro y robusto desde el principio.</p>
+                    <h3>¿Por qué es importante?</h3>
+                    <p>Encontrar fallos de seguridad en el software de forma temprana ahorra muchos problemas y dinero. Este enfoque ayuda a las empresas a usar mejor la información que ya tienen sobre seguridad y a aprender de la experiencia de la industria para proteger sus sistemas, como los utilizados en el sector de seguros, que es el ejemplo que usan en el estudio.</p>
+                </div>
+                <div class="level-summary technical">
+                    <h3>Metodología Principal</h3>
+                    <p>Este trabajo explora un enfoque automatizado para la evaluación de riesgos en sistemas de software, optimizando el modelado de amenazas convencional. Se apoya en técnicas de Aprendizaje Automático (AA) para analizar datos generados durante el proceso de desarrollo de software (ágil) y conocimiento industrial sobre vulnerabilidades (ej. mapeo CWE - Common Weakness Enumeration). El objetivo es cuantificar el modelado de amenazas y reducir sesgos humanos.</p>
+                    <p>El marco de gestión de riesgos integra datos de la industria y de la empresa para una visión holística. Se exploran diversos enfoques de AA y ensamblaje para predecir posibles CWEs basándose en la descripción de requisitos del cliente y otros artefactos del ciclo de vida (historias de usuario, tareas, casos de prueba, defectos gestionados en TFS). Se utilizan métricas como precisión, recall y F1-score para evaluar los modelos. Modelos como Linear SVC, Regresión Logística, Naïve Bayes Multinomial, Random Forest y XGBoost son experimentados, incluyendo técnicas de ensamblaje y apilamiento (stacking).</p>
+                    <h3>Resultados Clave</h3>
+                    <ul>
+                        <li>Los modelos iniciales de clasificación multiclase mostraron un rendimiento limitado (ej. Linear SVC con F1-score de 46%).</li>
+                        <li>El modelo XGBoost mostró el mejor rendimiento individual entre los probados inicialmente, pero aún no era suficiente.</li>
+                        <li>La experimentación con modelos de ensamblaje y apilamiento (stacking) de Decision Tree, KNeighbors y Regresión Logística mostró el mejor rendimiento, alcanzando una precisión del 77.7% y una desviación estándar del 2.5% tras enfocar el análisis en los 20 CWEs más prevalentes y aumentar el conjunto de datos.</li>
+                        <li>Se identificó la necesidad de calibración continua del sistema y colaboración con expertos para validar las etiquetas predichas y mejorar el motor de predicción.</li>
+                    </ul>
+                </div>
+                <div class="level-summary reflexive">
+                    <h3>Implicaciones y Contribuciones</h3>
+                    <p>Este estudio contribuye significativamente al proponer un sistema cuantitativo y basado en datos para el modelado de amenazas, reduciendo la dependencia de la intervención manual experta. Al integrar conocimiento de la industria (CWE) con datos internos de la empresa, se facilita una visión más completa de la seguridad del sistema. La singularidad del trabajo radica en su marco de gestión de riesgos con un proceso de modelado de amenazas cuantitativo, aplicable en ecosistemas de desarrollo ágil.</p>
+                    <h3>Limitaciones</h3>
+                    <ul>
+                        <li>El estudio se limita inicialmente a datos del dominio de seguros, aunque la metodología podría generalizarse.</li>
+                        <li>El rendimiento de los modelos de AA depende de la calidad y cantidad de los datos, y el etiquetado de CWEs requiere validación experta.</li>
+                        <li>Los conjuntos de datos desequilibrados son un desafío común en la predicción de vulnerabilidades, ya que algunas son mucho menos frecuentes que otras.</li>
+                        <li>No se profundiza en la categoría específica del sistema de software, lo que podría afectar la efectividad del modelo.</li>
+                    </ul>
+                    <h3>Aplicaciones Futuras y Líneas de Investigación</h3>
+                    <ul>
+                        <li>Explorar modelos de AA que aprovechen mejor la información contextual de los datos.</li>
+                        <li>Desarrollar conjuntos de datos más grandes y robustos para mejorar los métodos de aprendizaje profundo.</li>
+                        <li>Investigar métodos de detección de anomalías no supervisados para mejorar la eficiencia.</li>
+                        <li>Integrar el modelado con los objetivos específicos de los controles de seguridad en el desarrollo ágil.</li>
+                        <li>Crear herramientas que automaticen este proceso de evaluación de riesgos y lo integren en el ciclo de vida de desarrollo de software (SDLC).</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="paper-section" id="paper2">
+            <h2>Explorando Cómo Aplicar Principios Seguros de Diseño de Software</h2>
+            <p class="authors">SHOUKI A. EBAD</p>
+            <div class="level-selector">
+                <button data-level="introductory" class="active">Nivel Introductorio</button>
+                <button data-level="technical">Nivel Técnico</button>
+                <button data-level="reflexive">Nivel Reflexivo</button>
+            </div>
+            <div class="summary-content">
+                <div class="level-summary introductory active">
+                    <h3>¿De qué trata este artículo?</h3>
+                    <p>Piensa en los "Principios Seguros de Diseño" (SDPs) como las reglas de oro para construir software a prueba de fallos y ataques. Aunque estas reglas existen, muchos diseñadores de software no las conocen bien o no saben cómo usarlas. Este artículo busca enseñar, usando un ejemplo real (un sistema electrónico de promoción académica llamado ePS), cómo aplicar estas reglas en la práctica. El objetivo es que los ingenieros de software aprendan a evitar errores comunes de seguridad desde la fase de diseño.</p>
+                    <h3>¿Por qué es importante?</h3>
+                    <p>Corregir problemas de seguridad cuando el software ya está hecho es mucho más costoso y difícil que prevenirlos. Si los diseñadores aplican estos principios desde el inicio, el software será mucho más seguro. Este estudio ayuda a cerrar la brecha entre la teoría de la seguridad y lo que los desarrolladores hacen en su día a día.</p>
+                </div>
+                <div class="level-summary technical">
+                    <h3>Metodología Principal</h3>
+                    <p>El estudio utiliza una metodología de caso de estudio para evaluar la aplicación de Principios Seguros de Diseño (SDPs) en un proyecto de software del mundo real: un sistema electrónico de promoción académica (ePS). Se seleccionaron los ocho principios de Saltzer y Schroeder, complementados con tres principios adicionales (defensa en profundidad, autenticación robusta y validación de entrada), sumando un total de once SDPs. El sistema ePS, que gestiona documentos y artefactos para la promoción académica en una universidad, se modeló detallando sus requisitos de seguridad, roles de usuario y flujos de datos. Se analizó cómo cada uno de los once SDPs se aplicó o podría aplicarse al diseño de ePS, comentando su contribución y relevancia.</p>
+                    <h3>Observaciones Clave sobre la Aplicación de SDPs en ePS</h3>
+                    <ul>
+                        <li><strong>Economía de mecanismo:</strong> Aplicado considerablemente, aunque la evolución futura y las regulaciones podrían introducir complejidad.</li>
+                        <li><strong>Valores por defecto a prueba de fallos (Fail-safe defaults):</strong> Implementado, por ejemplo, al restringir el acceso a artefactos de niveles superiores y revocar privilegios automáticamente.</li>
+                        <li><strong>Mediación completa:</strong> No se consideró un rol importante para ePS individualmente, ya que la red universitaria maneja gran parte de esto.</li>
+                        <li><strong>Diseño abierto:</strong> Similar a la mediación completa, ePS es inherentemente abierto, y la seguridad por oscuridad no es el enfoque principal.</li>
+                        <li><strong>Separación de privilegios:</strong> Aplicado prohibiendo que un usuario opere con múltiples roles simultáneamente sin cambiar de contexto (ej. un Decano que también es solicitante).</li>
+                        <li><strong>Menor privilegio:</strong> Implementado mediante operaciones AMD (Añadir, Modificar, Eliminar) específicas para roles y niveles jerárquicos.</li>
+                        <li><strong>Menor mecanismo común:</strong> Generalmente evitado, minimizando funciones overly-funcionales, incluso para el rol de superusuario (Secretario del S.C.).</li>
+                        <li><strong>Aceptabilidad psicológica:</strong> Se buscó mediante SSO (Single Sign-On) y un diseño de interfaz familiar, aunque la usabilidad también depende de la infraestructura de TI.</li>
+                        <li><strong>Autenticación robusta:</strong> Implementada usando el servicio centralizado de autenticación de la universidad (Active Directory) y autenticación de dos factores para funciones sensibles.</li>
+                        <li><strong>Defensa en profundidad:</strong> Aplicada a nivel de infraestructura (físico, red, aplicación) de la universidad.</li>
+                        <li><strong>Validación de entrada:</strong> Especificada para todos los formatos de entrada, usando menús desplegables y WIMP para reducir errores. Se identificó una debilidad potencial si se suben PDFs escaneados como imágenes, afectando herramientas de plagio.</li>
+                    </ul>
+                    <h3>Contradicciones e Interrelaciones Identificadas</h3>
+                    <ul>
+                        <li>Economía de mecanismo vs. Menor privilegio: El menor privilegio puede restringir la simplicidad.</li>
+                        <li>Autenticación vs. Aceptabilidad psicológica: Contraseñas textuales fallan en aceptabilidad; biométricos podrían mejorarla pero añadir complejidad.</li>
+                        <li>Aceptabilidad psicológica (SSO) vs. Separación de privilegios: SSO puede violar otros principios si no se gestiona bien.</li>
+                        <li>Interrelación: Autenticación y Autorización son interdependientes.</li>
+                    </ul>
+                </div>
+                <div class="level-summary reflexive">
+                    <h3>Implicaciones y Contribuciones</h3>
+                    <p>Este trabajo es valioso porque aterriza conceptos teóricos de seguridad en un caso práctico, ofreciendo una guía tangible para desarrolladores. Demuestra que, si bien muchos SDPs son aplicables y beneficiosos, su relevancia y modo de implementación pueden variar según el contexto del sistema y la infraestructura existente. Subraya la importancia de considerar los SDPs desde las etapas tempranas del diseño y cómo algunos principios pueden tener tensiones o sinergias con otros.</p>
+                    <h3>Limitaciones</h3>
+                    <ul>
+                        <li>El estudio se basa en un único caso de estudio (ePS) en un entorno académico, lo que podría limitar la generalización de los hallazgos a otros tipos de software o industrias.</li>
+                        <li>La evaluación de la aplicabilidad de algunos SDPs (como mediación completa y diseño abierto) está influenciada por el hecho de que ePS opera dentro de una infraestructura de red universitaria que ya implementa ciertos controles.</li>
+                        <li>No se proporcionan métricas cuantitativas del impacto de la aplicación de los SDPs en la seguridad real del sistema ePS, ya que el sistema estaba en fase de diseño.</li>
+                        <li>La discusión sobre contradicciones e interrelaciones es cualitativa y basada en el contexto de ePS.</li>
+                    </ul>
+                    <h3>Aplicaciones Futuras y Líneas de Investigación</h3>
+                    <ul>
+                        <li>Realizar estudios similares en diferentes tipos de aplicaciones y dominios para validar la aplicabilidad y los desafíos de los SDPs.</li>
+                        <li>Desarrollar métricas para cuantificar el impacto de la aplicación de SDPs en la postura de seguridad de un sistema.</li>
+                        <li>Investigar más a fondo las contradicciones e interrelaciones entre SDPs para crear directrices sobre cómo balancearlos en diferentes escenarios.</li>
+                        <li>Crear herramientas o rúbricas que ayuden a los diseñadores a evaluar sistemáticamente la aplicación de SDPs en sus proyectos.</li>
+                        <li>Integrar la enseñanza de SDPs de forma más efectiva en los currículos de ingeniería de software.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="paper-section" id="paper3">
+            <h2>Una Nueva Metodología Ligera de Desarrollo de Software Individual con Prácticas de Seguridad Óptimas</h2>
+            <p class="authors">SIBONILE MOYO AND ERNEST MNKANDLA</p>
+            <div class="level-selector">
+                <button data-level="introductory" class="active">Nivel Introductorio</button>
+                <button data-level="technical">Nivel Técnico</button>
+                <button data-level="reflexive">Nivel Reflexivo</button>
+            </div>
+            <div class="summary-content">
+                <div class="level-summary introductory active">
+                    <h3>¿De qué trata este artículo?</h3>
+                    <p>Muchos desarrolladores de software trabajan solos (freelance o en proyectos pequeños) y necesitan una forma de trabajar que sea rápida y eficiente (ágil), pero también segura. La mayoría de las guías de desarrollo se enfocan en equipos grandes. Este artículo propone una nueva "receta" o metodología de trabajo, llamada Secure-SSDM, diseñada específicamente para estos desarrolladores individuales. Combina prácticas para asegurar la calidad del software con prácticas de seguridad ligeras, de manera que el producto final sea bueno y seguro, sin que el proceso se vuelva demasiado lento o complicado.</p>
+                    <h3>¿Por qué es importante?</h3>
+                    <p>Con más software desplegado en Internet, la seguridad es crucial. Los desarrolladores individuales a menudo no tienen los recursos de las grandes empresas, por lo que necesitan un método adaptado a sus necesidades. Secure-SSDM busca llenar este vacío, ayudándoles a integrar la seguridad desde el principio de forma manejable y efectiva.</p>
+                </div>
+                <div class="level-summary technical">
+                    <h3>Metodología Principal</h3>
+                    <p>El estudio utiliza la Investigación en Ciencia del Diseño (DSR) para desarrollar iterativamente la metodología Secure-SSDM (Secure Solo Software Development Methodology). El objetivo es integrar prácticas de calidad y seguridad en el proceso de desarrollo de software para desarrolladores individuales (solo developers).</p>
+                    <ol>
+                        <li><strong>Identificación de Prácticas:</strong> Se derivaron prácticas de calidad fundamentales de un marco de SSDM previamente desarrollado por los autores, basado en una meta-síntesis de SSDMs existentes. Las prácticas de seguridad se extrajeron de un marco de seguridad (basado en una revisión sistemática de literatura sobre prácticas de seguridad ágiles), seleccionando aquellas ejecutables por un individuo.</li>
+                        <li><strong>Cálculo de Grados de Agilidad:</strong> Para cada práctica (de calidad y seguridad), se calculó un grado de agilidad basado en seis características: flexibilidad, rapidez, esbeltez (leanness), capacidad de respuesta, aprendizaje y simplicidad. Se adoptó un umbral de agilidad de >= 0.5 (escala 0-1) para considerar una práctica como ágil.</li>
+                        <li><strong>Matriz de Compatibilidad:</strong> Se creó una matriz para evaluar la compatibilidad entre las prácticas de calidad y seguridad, determinando si podían ejecutarse simultáneamente con mínima pérdida de productividad.</li>
+                        <li><strong>Integración de Prácticas:</strong> Se utilizó una versión adaptada del algoritmo de Keramati y Mirian-Hosseinabadi para integrar las prácticas. Este algoritmo prioriza la seguridad, seleccionando la práctica de seguridad con mayor grado de agilidad y la práctica ágil (de calidad) con el menor grado de agilidad compatible. La nueva práctica integrada toma el mínimo de los grados de agilidad de las dos originales y se incluye si supera el umbral de 0.5.</li>
+                    </ol>
+                    <p>La Secure-SSDM resultante se organiza en seis etapas: 1. Adopción de Estándares y Compromiso de Gestión; 2. Elicitación de Requisitos Funcionales y de Seguridad; 3. Planificación de Lanzamiento y Sprint; 4. Desarrollo con Revisión; 5. Revisión y Cierre de Sprint; 6. Evaluación.</p>
+                    <h3>Resultados de la Evaluación (Estudio de Caso)</h3>
+                    <p>Se evaluó la utilidad de Secure-SSDM mediante un estudio de caso con 39 estudiantes de informática de pregrado, quienes aplicaron la metodología para desarrollar productos de software individuales. El feedback se recogió mediante discusiones de grupo focal y análisis de documentos.</p>
+                    <ul>
+                        <li>Los participantes reconocieron la importancia de analizar la seguridad desde la perspectiva de un intruso (casos de mal uso) y la utilidad de técnicas como el "compañero ficticio" (dummy partner) para la revisión de código.</li>
+                        <li>Se identificaron fortalezas como la flexibilidad y la promoción de la seguridad, y debilidades como la propensión al sesgo del desarrollador y la dificultad inicial para implementar prácticas de seguridad desconocidas.</li>
+                        <li>La mayoría de los participantes logró modelar casos de mal uso y diseñar contramedidas.</li>
+                    </ul>
+                </div>
+                <div class="level-summary reflexive">
+                    <h3>Implicaciones y Contribuciones</h3>
+                    <p>La principal contribución es la Secure-SSDM, una metodología que formaliza la integración de prácticas de calidad y seguridad para el entorno de desarrollo individual, un área poco atendida. Teóricamente, añade al cuerpo de conocimiento sobre SSDMs la dimensión de seguridad. En la práctica, ofrece una guía estructurada para que los desarrolladores individuales mejoren la seguridad de sus productos sin sacrificar excesivamente la agilidad. El estudio de caso, aunque académico, sugiere su utilidad potencial.</p>
+                    <h3>Limitaciones</h3>
+                    <ul>
+                        <li>La evaluación se realizó en un entorno académico con estudiantes, lo que puede no reflejar completamente los desafíos y dinámicas de desarrolladores profesionales en la industria.</li>
+                        <li>El cálculo del grado de agilidad y la determinación de compatibilidad entre prácticas pueden tener un componente subjetivo.</li>
+                        <li>El umbral de agilidad de 0.5 es una adaptación y podría requerir justificación adicional o ajuste según el contexto.</li>
+                        <li>La generalización de los resultados del estudio de caso es limitada debido a la naturaleza del entorno académico y los recursos de los participantes.</li>
+                    </ul>
+                    <h3>Aplicaciones Futuras y Líneas de Investigación</h3>
+                    <ul>
+                        <li>Evaluar Secure-SSDM en entornos industriales con desarrolladores profesionales mediante múltiples estudios de caso.</li>
+                        <li>Incorporar prácticas adicionales para abordar características de calidad no cubiertas (eficiencia de rendimiento, compatibilidad, portabilidad).</li>
+                        <li>Desarrollar herramientas que soporten la implementación de Secure-SSDM, como dashboards automatizados o tutoriales integrados.</li>
+                        <li>Refinar el algoritmo de integración de prácticas y el cálculo de grados de agilidad para aumentar la objetividad.</li>
+                        <li>Investigar cómo adaptar Secure-SSDM para tipos específicos de proyectos o tecnologías (ej. desarrollo móvil, IoT).</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="paper-section" id="paper4">
+            <h2>Estudio de Mapeo Sistemático sobre Enfoques de Seguridad en Ingeniería de Software Segura</h2>
+            <p class="authors">RAFIQ AHMAD KHAN, SIFFAT ULLAH KHAN, HABIB ULLAH KHAN, AND MUHAMMAD ILYAS</p>
+            <div class="level-selector">
+                <button data-level="introductory" class="active">Nivel Introductorio</button>
+                <button data-level="technical">Nivel Técnico</button>
+                <button data-level="reflexive">Nivel Reflexivo</button>
+            </div>
+            <div class="summary-content">
+                <div class="level-summary introductory active">
+                    <h3>¿De qué trata este artículo?</h3>
+                    <p>La seguridad del software es cada vez más importante. Este artículo es como un gran mapa que organiza toda la investigación existente sobre cómo hacer software seguro. Los autores revisaron muchísimos estudios para entender qué métodos, técnicas y modelos se usan para integrar la seguridad en cada etapa del desarrollo de software (desde que se piensa la idea hasta que se lanza). Quieren saber qué funciona, qué no, dónde hay vacíos en el conocimiento y dónde deberían enfocarse los futuros investigadores.</p>
+                    <h3>¿Por qué es importante?</h3>
+                    <p>Tener un "mapa" así ayuda a los desarrolladores y a los investigadores a no perderse. Pueden ver rápidamente qué enfoques son populares, cuáles son efectivos y dónde se necesita más trabajo. Esto es crucial porque, a pesar de los esfuerzos, todavía se crea mucho software con fallos de seguridad. Este estudio busca mostrar que el campo aún es joven y necesita más investigación, especialmente soluciones que se hayan probado en la práctica.</p>
+                </div>
+                <div class="level-summary technical">
+                    <h3>Metodología Principal</h3>
+                    <p>Este estudio emplea un Mapeo Sistemático de la Literatura (SMS) para investigar los enfoques de seguridad en la Ingeniería de Software Segura (SSE). El proceso incluyó:</p>
+                    <ol>
+                        <li><strong>Definición de Preguntas de Investigación (RQs):</strong> Se centraron en el estado del arte de la SSE, métodos de seguridad implementados, fases del SDLC más abordadas, análisis FODA (Fortalezas, Debilidades, Oportunidades, Amenazas) de los enfoques y lugares populares de publicación.</li>
+                        <li><strong>Estrategia de Búsqueda:</strong> Se utilizó una cadena de búsqueda construida con PICO (Población, Intervención, Comparación, Resultados) en bibliotecas digitales como IEEE Xplore, ACM, Springer Link, Science Direct y Wiley Online Library, además de Google Scholar.</li>
+                        <li><strong>Criterios de Selección:</strong> Se definieron criterios de inclusión (ej. artículos sobre seguridad de software, relacionados con SDLC) y exclusión (ej. no publicados en revistas/conferencias, no en inglés).</li>
+                        <li><strong>Extracción y Síntesis de Datos:</strong> De los 116 estudios seleccionados finalmente, se extrajo información sobre métodos de seguridad, fases del SDLC, análisis FODA, canal de publicación y se realizó una evaluación de calidad de los artículos.</li>
+                    </ol>
+                    <h3>Resultados Clave</h3>
+                    <ul>
+                        <li><strong>Métodos de Seguridad:</strong> "Medición y análisis de seguridad del software" fue la categoría más citada (29%), con CORAS como el método más popular. Le sigue "Tecnología de preservación de la privacidad" (26%), con SecureUML y UMLsec como los más destacados. "Pruebas de software" (24%) y "Requisitos de ingeniería seguros" (16%) también fueron prominentes.</li>
+                        <li><strong>Fases del SDLC:</strong> La fase de diseño fue la más abordada (32% de los estudios), seguida por la consideración de la seguridad a lo largo de todo el SDLC (26%) y la fase de pruebas (22%). La fase de codificación recibió un 12% y la de requisitos un 10%.</li>
+                        <li><strong>Análisis FODA:</strong> Se realizó un análisis FODA para varios modelos y frameworks (ej. SSD-CMM, BSIMM, Misuse Case Modeling, Secure Tropos, MS SDL, KAOS), detallando sus fortalezas, debilidades, oportunidades y amenazas.</li>
+                        <li><strong>Lugares de Publicación:</strong> El 64% de los artículos se publicaron en revistas Q1-Q4 y conferencias CORE A*-C. Revistas como "Information and Software Technology" y conferencias como "International Conference on Availability, Reliability, and Security (ARES)" fueron recurrentes.</li>
+                        <li><strong>Calidad y Madurez:</strong> El estudio concluye que el dominio de SSE es aún inmaduro y se necesita más investigación, especialmente soluciones evaluadas empíricamente. Solo el 30.12% de los enfoques de seguridad reportados habían sido validados empíricamente.</li>
+                    </ul>
+                </div>
+                <div class="level-summary reflexive">
+                    <h3>Implicaciones y Contribuciones</h3>
+                    <p>Este SMS ofrece una taxonomía valiosa y una visión panorámica del campo de la Ingeniería de Software Segura. Sirve como guía para investigadores y profesionales al identificar tendencias, brechas de investigación (como la falta de validación empírica) y áreas de enfoque. La clasificación de métodos, su aplicabilidad en el SDLC y el análisis FODA proporcionan una base sólida para futuras investigaciones y para la adopción de mejores prácticas en la industria.</p>
+                    <h3>Limitaciones</h3>
+                    <ul>
+                        <li>La calidad de un SMS depende de la exhaustividad de la búsqueda y la correcta aplicación de los criterios de selección; siempre existe el riesgo de omitir estudios relevantes.</li>
+                        <li>La clasificación de estudios y el análisis FODA pueden tener un componente de subjetividad por parte de los autores del mapeo.</li>
+                        <li>El estudio se basa en la literatura publicada hasta la fecha de la búsqueda, por lo que avances más recientes no estarían incluidos.</li>
+                        <li>La evaluación de la "competitividad" de los métodos de seguridad es inherentemente compleja y puede variar según el contexto.</li>
+                    </ul>
+                    <h3>Aplicaciones Futuras y Líneas de Investigación</h3>
+                    <ul>
+                        <li>Desarrollar y validar empíricamente más enfoques de seguridad, especialmente para las fases menos cubiertas del SDLC o para tipos específicos de software.</li>
+                        <li>Crear modelos de madurez o aseguramiento de la seguridad que integren los hallazgos de este mapeo para ayudar a las organizaciones a evaluar y mejorar sus prácticas de SSE. (De hecho, los autores mencionan planes para desarrollar un "Software Security Assurance Model (SSAM)").</li>
+                        <li>Investigar la efectividad y aplicabilidad de los enfoques identificados en contextos específicos, como el desarrollo de software global (GSD).</li>
+                        <li>Actualizar periódicamente este tipo de mapeos para reflejar la evolución del campo.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="paper-section" id="paper5">
+            <h2>Modelo de Aseguramiento de la Seguridad del Desarrollo de Software para Proveedores de Desarrollo de Software Global</h2>
+            <p class="authors">RAFIQ AHMAD KHAN, SIFFAT ULLAH KHAN, MUSAAD ALZAHRANI, AND MUHAMMAD ILYAS</p>
+            <div class="level-selector">
+                <button data-level="introductory" class="active">Nivel Introductorio</button>
+                <button data-level="technical">Nivel Técnico</button>
+                <button data-level="reflexive">Nivel Reflexivo</button>
+            </div>
+            <div class="summary-content">
+                <div class="level-summary introductory active">
+                    <h3>¿De qué trata este artículo?</h3>
+                    <p>Con el aumento de los ataques informáticos, es fundamental que el software se construya seguro desde el inicio. Este artículo propone un nuevo modelo llamado SAM (Security Assurance Model) especialmente diseñado para empresas que desarrollan software a nivel global (proveedores GSD). SAM es como una guía detallada que ayuda a estas empresas a asegurarse de que están siguiendo las mejores prácticas de seguridad en cada paso de la creación de software. El modelo organiza estas prácticas en 7 niveles de "aseguramiento de la seguridad", cubriendo desde la planificación hasta el mantenimiento.</p>
+                    <h3>¿Por qué es importante?</h3>
+                    <p>Muchas empresas, especialmente las que trabajan globalmente, necesitan una forma clara de medir y mejorar su seguridad. Los modelos existentes a menudo no se ajustan bien a sus necesidades. SAM busca llenar ese vacío, ofreciendo una estructura que identifica 46 riesgos críticos de seguridad y 388 prácticas para manejarlos. Al usar SAM, las empresas pueden saber qué tan seguras son sus prácticas y dónde necesitan mejorar, haciendo su software más confiable.</p>
+                </div>
+                <div class="level-summary technical">
+                    <h3>Metodología Principal</h3>
+                    <p>El desarrollo del Modelo de Aseguramiento de la Seguridad (SAM) para proveedores de Desarrollo de Software Global (GSD) siguió un proceso de siete pasos:</p>
+                    <ol>
+                        <li><strong>Mapeo Sistemático de la Literatura (SMS):</strong> Se realizó un SMS previo (referenciado como [22], [23]) que identificó 116 estudios sobre enfoques de seguridad en SSE, analizando modelos, fases del SDLC, etc. Se identificaron 37 paradigmas, marcos y modelos SSE.</li>
+                        <li><strong>Revisión Sistemática de la Literatura (SLR):</strong> Se llevó a cabo una SLR (referenciada como [48]) para clasificar artículos seleccionados e identificar riesgos y prácticas de seguridad. Se identificaron 145 riesgos de seguridad y 424 mejores prácticas.</li>
+                        <li><strong>Encuesta por Cuestionario:</strong> Se diseñó y administró una encuesta en línea a profesionales de GSD y SSD para validar los hallazgos de la SLR y descubrir riesgos y prácticas adicionales. Se usó una escala Likert de cinco puntos. Se obtuvieron 50 respuestas válidas.</li>
+                        <li><strong>Cuantificación de Riesgos (CSSRs):</strong> Se identificaron 46 Riesgos Críticos de Seguridad del Software (CSSRs) utilizando un criterio de ocurrencia del 10% tanto en los hallazgos de la SLR como en la encuesta.</li>
+                        <li><strong>Desarrollo del SDLC Seguro para GSD y SAM:</strong> Se categorizaron los CSSRs y sus prácticas en 7 fases de un SDLC seguro. Estas fases se convirtieron en los 7 niveles de aseguramiento del SAM:
+                            <ul>
+                                <li>Nivel 1: Gobernanza y Análisis de Amenazas de Seguridad</li>
+                                <li>Nivel 2: Análisis de Requisitos Seguros</li>
+                                <li>Nivel 3: Diseño Seguro</li>
+                                <li>Nivel 4: Codificación Segura</li>
+                                <li>Nivel 5: Pruebas y Revisión Seguras</li>
+                                <li>Nivel 6: Despliegue Seguro</li>
+                                <li>Nivel 7: Mejora de la Seguridad</li>
+                            </ul>
+                            En total, se mapearon 388 prácticas para los 46 CSSRs.
+                        </li>
+                        <li><strong>Validación del SAM mediante Estudios de Caso:</strong> Se realizaron 3 estudios de caso en empresas de desarrollo de software (una grande, una mediana, una pequeña). Se utilizó la herramienta de evaluación de Motorola para que las empresas evaluaran su nivel de aseguramiento para cada CSSR. Las dimensiones evaluadas fueron Enfoque, Despliegue y Resultados (con puntuaciones de 0 a 10). Una puntuación >= 7 para un CSSR se consideró "Fuerte".</li>
+                        <li><strong>Análisis de Feedback:</strong> Se realizaron grupos focales con los participantes de los estudios de caso para obtener retroalimentación sobre el SAM.</li>
+                    </ol>
+                    <h3>Resultados Clave de los Estudios de Caso</h3>
+                    <ul>
+                        <li><strong>Compañía A (Grande):</strong> Alcanzó el Nivel 4 (Codificación Segura), abordando comprensivamente los riesgos de los niveles anteriores. Mostró debilidad en CSSR38 (código desordenado).</li>
+                        <li><strong>Compañía B (Mediana):</strong> Alcanzó el Nivel 3 (Diseño Seguro). Mostró debilidades en prácticas de codificación segura (ej. CSSR17, CSSR21).</li>
+                        <li><strong>Compañía C (Pequeña):</strong> Alcanzó todos los niveles de aseguramiento, abordando comprensivamente los riesgos en todos ellos.</li>
+                        <li>El feedback general indicó que el SAM es útil, claro y puede mejorar los procesos de desarrollo seguro, aunque se sugirieron mejoras como la predicción de categorías de riesgo y la automatización mediante una herramienta.</li>
+                    </ul>
+                </div>
+                <div class="level-summary reflexive">
+                    <h3>Implicaciones y Contribuciones</h3>
+                    <p>Este trabajo presenta el SAM, un modelo estructurado y jerárquico para que los proveedores de GSD evalúen y mejoren su madurez en seguridad de software. Su principal contribución es la consolidación de una vasta cantidad de riesgos y prácticas de seguridad en un marco cohesivo de 7 niveles, adaptado a las realidades del GSD. El modelo no solo sirve como herramienta de evaluación, sino también como hoja de ruta para la mejora continua. La validación mediante estudios de caso, aunque limitada, le otorga una base práctica inicial.</p>
+                    <h3>Limitaciones</h3>
+                    <ul>
+                        <li>La identificación de CSSRs y la asignación de prácticas pueden tener un componente subjetivo, aunque mitigado por la triangulación de SMS, SLR y encuesta.</li>
+                        <li>La herramienta de evaluación de Motorola, aunque utilizada por otros investigadores, tiene sus propias características y posibles sesgos.</li>
+                        <li>La validación se realizó con solo tres empresas; se necesitarían más estudios de caso para una generalización más robusta.</li>
+                        <li>El modelo SAM es extenso (46 CSSRs, 388 prácticas), lo que podría representar un desafío para su adopción inicial por empresas con recursos limitados, a pesar de estar enfocado en GSD.</li>
+                    </ul>
+                    <h3>Aplicaciones Futuras y Líneas de Investigación</h3>
+                    <ul>
+                        <li>Desarrollar una herramienta de software automatizada para facilitar la aplicación y el seguimiento del SAM.</li>
+                        <li>Expandir el SAM para incluir características específicas de tecnologías emergentes como IoT, blockchain y computación en la nube.</li>
+                        <li>Realizar más estudios de caso en diversos contextos de GSD para refinar el modelo y validar su efectividad a mayor escala.</li>
+                        <li>Investigar cómo el SAM puede integrarse con otros modelos de madurez o estándares de calidad existentes.</li>
+                        <li>Crear un repositorio en línea para el SAM, actualizado regularmente con nuevas prácticas y hallazgos de investigación.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>© 2024 Plataforma Educativa de Seguridad de Software. Creado por IA con fines demostrativos.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const paperSections = document.querySelectorAll('.paper-section');
+
+            paperSections.forEach(section => {
+                const levelButtons = section.querySelectorAll('.level-selector button');
+                const summaries = section.querySelectorAll('.summary-content .level-summary');
+
+                levelButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const targetLevel = button.dataset.level;
+
+                        // Actualizar botones
+                        levelButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+
+                        // Actualizar contenido
+                        summaries.forEach(summary => {
+                            summary.classList.remove('active');
+                            if (summary.classList.contains(targetLevel)) {
+                                summary.classList.add('active');
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
